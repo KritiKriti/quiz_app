@@ -1,80 +1,200 @@
-:root{
-    --primary:#2563EB;
-    --dark:#1E3A8A;
-    --light:#DBEAFE;
-    --hover:#1D4ED8;
-    --success:#22C55E;
-    --danger:#EF4444;
-    --white:#FFFFFF;
-    --text:#1F2937;
-}
-
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
     font-family:Arial;
+    scroll-behavior:smooth;
 }
 
-body{
-    background:linear-gradient(135deg, var(--primary), var(--dark));
-    min-height:100vh;
+/* NAVBAR */
+.navbar{
+    background:#0B1F4B;
     display:flex;
+    justify-content:space-between;
+    padding:15px 50px;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#1D4ED8;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:linear-gradient(to right,#2563EB,#1D4ED8);
+    display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     color:white;
+    text-align:center;
 }
 
-/* CARD CONTAINER */
-.card{
+.hero button{
+    padding:12px 25px;
+    margin-top:20px;
+    border:none;
     background:white;
-    color:var(--text);
+    color:#1D4ED8;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* SECTIONS */
+.section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.section h2{
+    color:#1D4ED8;
+    margin-bottom:10px;
+}
+.login-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563EB,#1E3A8A);
+}
+
+.login-card{
+    background:white;
     padding:30px;
-    width:350px;
+    width:320px;
     border-radius:15px;
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
     text-align:center;
 }
 
-/* INPUTS */
-input, select{
+.login-card h2{
+    color:#1E3A8A;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    font-size:13px;
+    color:gray;
+    margin-bottom:20px;
+}
+
+.login-card input,
+.login-card select{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border:1px solid #ccc;
+    border:1px solid #ddd;
     border-radius:8px;
     outline:none;
 }
 
-/* BUTTON */
-button{
+.login-card button{
     width:100%;
     padding:12px;
-    background:var(--primary);
     border:none;
+    background:#2563EB;
     color:white;
     border-radius:8px;
     cursor:pointer;
     transition:0.3s;
-    font-size:16px;
 }
 
-button:hover{
-    background:var(--hover);
-    transform:scale(1.03);
+.login-card button:hover{
+    background:#1D4ED8;
 }
 
-/* DASHBOARD */
-.dashboard{
+.error{
+    background:#EF4444;
+    color:white;
+    padding:8px;
+    border-radius:5px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.bottom-text{
+    margin-top:10px;
+    font-size:13px;
+}
+
+.bottom-text a{
+    color:#2563EB;
+    text-decoration:none;
+}
+
+.back{
+    display:block;
+    margin-top:10px;
+    font-size:12px;
+    color:gray;
+    text-decoration:none;
+}
+.dashboard-container{
+    padding-top:100px;
     text-align:center;
+    color:#1E3A8A;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+    padding:40px;
+}
+.card-grid1{
+    display:grid;
+    grid-template-rows:repeat(4, 1fr);
+    gap:20px;
     padding:40px;
 }
 
-.dashboard h1{
-    margin-bottom:20px;
+.card-box{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+    color:#2563EB;
+
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
 }
 
-.btn-group button{
-    width:200px;
-    margin:10px;
+.card-box:hover{
+    transform:scale(1.05);
+    background:#2563EB;
+    color:white;
+}
+@media(max-width: 1000px){
+    .card-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .card-grid{
+        grid-template-columns:repeat(1, 1fr);
+    }
 }
