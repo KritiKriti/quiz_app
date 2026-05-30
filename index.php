@@ -6,24 +6,50 @@
 </head>
 <body>
 
-<div class="card">
+<!-- NAVBAR -->
+<div class="navbar">
 
-    <h2>Online Quiz System</h2>
-    <p>Select Login Type</p>
+    <div class="logo">QuizMaster</div>
 
-    <a href="login.php?role=admin">
-        <button>Admin Login</button>
-    </a>
-
-    <a href="login.php?role=user">
-        <button>User Login</button>
-    </a>
-
-    <br><br>
-
-    <a href="register.php">New User? Register</a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#location">Location</a>
+        <a href="login.php">Login</a>
+    </div>
 
 </div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <h1>Welcome to QuizMaster</h1>
+    <p>Test your knowledge with interactive quizzes</p>
+
+    <a href="login.php">
+        <button>Start Quiz</button>
+    </a>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <h2>About Us</h2>
+    <p>We provide interactive quizzes for students to improve knowledge.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Email: quizapp@gmail.com</p>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+    <h2>Location</h2>
+    <p>Kathmandu, Nepal</p>
+</section>
 
 </body>
 </html>
