@@ -1,32 +1,37 @@
 <?php
 session_start();
-include("config/db.php");
+include("db.php");
 
-$role = $_GET['role'] ?? 'user';
+$error = "";
 
 if(isset($_POST['login'])){
 
-    $u = $_POST['username'];
-    $p = $_POST['password'];
-    $r = $_POST['role'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
 
-    $res = mysqli_query($conn,
-    "SELECT * FROM users WHERE username='$u' AND password='$p' AND role='$r'");
+    $sql = "SELECT * FROM users 
+            WHERE username='$username' 
+            AND password='$password' 
+            AND role='$role'";
 
-    if(mysqli_num_rows($res) > 0){
+    $result = mysqli_query($conn, $sql);
 
-        $row = mysqli_fetch_assoc($res);
+    if(mysqli_num_rows($result) > 0){
 
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['role'] = $row['role'];
+        $user = mysqli_fetch_assoc($result);
 
-        if($r == 'admin'){
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['role'] = $user['role'];
+
+        if($role == "admin"){
             header("Location: admin_dashboard.php");
         } else {
             header("Location: user_dashboard.php");
         }
+
     } else {
-        echo "<script>alert('Invalid Login');</script>";
+        $error = "Invalid username, password or role!";
     }
 }
 ?>
@@ -39,23 +44,42 @@ if(isset($_POST['login'])){
 </head>
 <body>
 
-<div class="card">
+<div class="login-container">
 
-    <h2><?php echo strtoupper($role); ?> LOGIN</h2>
+    <div class="login-card">
 
-    <form method="POST">
+        <h2>Login to QuizMaster</h2>
+        <p class="subtitle">Access your account</p>
 
-        <input type="hidden" name="role" value="<?php echo $role; ?>">
+        <?php if($error != "") { ?>
+            <div class="error"><?php echo $error; ?></div>
+        <?php } ?>
 
-        <input type="text" name="username" placeholder="Username" required>
+        <form method="POST">
 
-        <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="username" placeholder="Enter Username" required>
 
-        <button name="login">Login</button>
+            <input type="password" name="password" placeholder="Enter Password" required>
 
-    </form>
+            <!-- ROLE SELECTION -->
+            <select name="role" required>
+                <option value="">Login As</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
 
-    <a href="index.php">Back</a>
+            <button type="submit" name="login">Login</button>
+
+        </form>
+
+        <p class="bottom-text">
+            Don't have an account?
+            <a href="register.php">Register</a>
+        </p>
+
+        <a href="index.php" class="back">← Back to Home</a>
+
+    </div>
 
 </div>
 
