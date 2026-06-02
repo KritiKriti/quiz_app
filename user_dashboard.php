@@ -36,21 +36,31 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != "user"){
 
     <div class="card-grid">
 
-        <div class="card-box">📘 Mathematics</div>
-        <div class="card-box">🔬 Science</div>
-        <div class="card-box">💻 Computer</div>
-        <div class="card-box">🌍 General Knowledge</div>
-        <div class="card-box">💻 Web Technology</div>
-    <div class="card-box">🗄 Database Management System</div>
-    <div class="card-box">📱 Mobile Programming</div>
-    <div class="card-box">🧠 Computer Graphics</div>
-    <div class="card-box">🔐 Cyber Security</div>
-    <div class="card-box">🌐 Computer Networks</div>
-    <div class="card-box">⚙ Operating System</div>
-    <div class="card-box">📊 Software Engineering</div>
+    <a href="quiz.php?subject=Web Technology" class="card-box">💻 Web Technology</a>
 
+    <a href="quiz.php?subject=Database Management System" class="card-box">🗄 DBMS</a>
 
-    </div>
+    <a href="quiz.php?subject=Computer Networks" class="card-box">🌐 Computer Networks</a>
+
+    <a href="quiz.php?subject=Operating System" class="card-box">⚙ Operating System</a>
+
+    <a href="quiz.php?subject=Software Engineering" class="card-box">📊 Software Engineering</a>
+
+    <a href="quiz.php?subject=Computer Graphics" class="card-box">🎨 Computer Graphics</a>
+
+    <a href="quiz.php?subject=Cyber Security" class="card-box">🔐 Cyber Security</a>
+
+    <a href="quiz.php?subject=Mobile Programming" class="card-box">📱 Mobile Programming</a>
+
+    <a href="quiz.php?subject=Data Structures" class="card-box">📚 Data Structures</a>
+
+    <a href="quiz.php?subject=Java Programming" class="card-box">☕ Java Programming</a>
+
+    <a href="quiz.php?subject=Python Programming" class="card-box">🐍 Python Programming</a>
+
+    <a href="quiz.php?subject=Mathematics" class="card-box">📐 Mathematics</a>
+
+</div>
 
 </div>
 
