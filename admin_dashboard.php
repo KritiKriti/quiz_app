@@ -34,16 +34,25 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != "admin"){
     <h1>Welcome Admin 👑</h1>
     <p>Manage your quiz system</p>
 
-    <div class="card-grid">
+   <div class="card-grid">
 
-        <div class="card-box">➕ Add Subject</div>
-        <div class="card-box">🗑 Delete Subject</div>
-        <div class="card-box">➕ Add Question</div>
-        <div class="card-box">✏ Update Question</div>
-        <div class="card-box">❌ Delete Question</div>
+<a href="add_subject.php" class="card-box">
+➕ Add Subject
+</a>
 
-    </div>
+<a href="manage_subject.php" class="card-box">
+📚 Manage Subjects
+</a>
 
+<a href="add_question.php" class="card-box">
+➕ Add Question
+</a>
+
+<a href="manage_question.php" class="card-box">
+✏ Manage Questions
+</a>
+
+</div>
 </div>
 
 </body>
