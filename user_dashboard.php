@@ -1,10 +1,13 @@
 <?php
 session_start();
+include("db.php");
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] != "user"){
     header("Location: login.php");
     exit();
 }
+
+$subjects = mysqli_query($conn, "SELECT * FROM subjects ORDER BY subject_name");
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +18,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != "user"){
 </head>
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
 
     <div class="logo">QuizMaster</div>
@@ -28,37 +30,27 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != "user"){
 
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="dashboard-container">
 
-    <h1>Welcome User 🎓</h1>
-    <p>Select a subject to start your quiz</p>
+<h1>Welcome User 🎓</h1>
 
-    <div class="card-grid">
+<p>Select a subject to start your quiz.</p>
 
-    <a href="quiz.php?subject=Web Technology" class="card-box">💻 Web Technology</a>
+<div class="card-grid">
 
-    <a href="quiz.php?subject=Database Management System" class="card-box">🗄 DBMS</a>
+<?php
+while($row = mysqli_fetch_assoc($subjects)){
+?>
 
-    <a href="quiz.php?subject=Computer Networks" class="card-box">🌐 Computer Networks</a>
+<a href="quiz.php?subject=<?php echo urlencode($row['subject_name']); ?>" class="card-box">
 
-    <a href="quiz.php?subject=Operating System" class="card-box">⚙ Operating System</a>
+<?php echo $row['subject_name']; ?>
 
-    <a href="quiz.php?subject=Software Engineering" class="card-box">📊 Software Engineering</a>
+</a>
 
-    <a href="quiz.php?subject=Computer Graphics" class="card-box">🎨 Computer Graphics</a>
-
-    <a href="quiz.php?subject=Cyber Security" class="card-box">🔐 Cyber Security</a>
-
-    <a href="quiz.php?subject=Mobile Programming" class="card-box">📱 Mobile Programming</a>
-
-    <a href="quiz.php?subject=Data Structures" class="card-box">📚 Data Structures</a>
-
-    <a href="quiz.php?subject=Java Programming" class="card-box">☕ Java Programming</a>
-
-    <a href="quiz.php?subject=Python Programming" class="card-box">🐍 Python Programming</a>
-
-    <a href="quiz.php?subject=Mathematics" class="card-box">📐 Mathematics</a>
+<?php
+}
+?>
 
 </div>
 
