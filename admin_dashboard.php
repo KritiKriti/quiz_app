@@ -51,7 +51,9 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != "admin"){
 <a href="manage_question.php" class="card-box">
 ✏ Manage Questions
 </a>
-
+<a href="manage_users.php" class="card-box">
+👥 Manage Users
+</a>
 </div>
 </div>
 
